@@ -1,31 +1,39 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1 style="color:black">BookClub</h1>
+    <p style="color:black" class="lead">BookClub is a Web App designed to help manage your Bookclub</p>
 </div>
-
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-md-2">
+        <h2>BookClub Services</h2>
+        <p>Book Club Admin can create and edit a BookClub Profile. Book Club members can view Book Club Data</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "BookClub")">BookClub View &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-2">
+        <h2>BookClub Member Services</h2>
+        <p>Join your chosen BookClub</p>
+        <p><a class="btn btn-default" href="@Url.Action("Create", "BookClubMember")">BookClubMember &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-2">
+        <h2>Library Services</h2>
+        <p>Create edit or link a Library Profile to a BookClub. Book Club admin and members can view Library Data</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Library")">Library &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>Books</h2>
+        <p>Create, Edit or View the Books that our BookClubs are reading</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Book")">Books &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>Book Reviews</h2>
+        <p>View Book Reviews</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Review")">Book Reviews &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>Book Lists</h2>
+        <p>View selected reader Book Lists</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "BookList")">Book Lists &raquo;</a></p>
     </div>
 </div>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<BookClubAppProject.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+
+<hr />
+<div class="container">
+    <div class="pull-left">
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="search-text">Book Title</label>
+                @Html.TextBox("bookTitleSearch", "", new { @class = "form-control", @placeholder = "Search by Book Title" })
+                @Html.TextBox("authorNameSearch", "", new { @class = "form-control", @placeholder = "Search by Author Name" })
+                @Html.TextBox("bookListid", "", new { @class = "hidden", Value = ViewBag.BookListID })
+            </div>
+            <button type="submit" class="btn btn-success" id="search-btn">Search</button>
+        </form>
+    </div>
+</div>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenreType)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreType)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookISBN }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookISBN }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookISBN }) |
+                @Html.ActionLink("Add Review", "Create", "Review", new { id = item.BookISBN }, new { })
+
+                @if (ViewBag.BookListID != null)
+                {
+                    <span> | </span>
+                    @Html.ActionLink("Add Book to BookList", "BookToList", "BookList", new { id = item.BookISBN, id2 = ViewBag.BookListID }, new { })
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>

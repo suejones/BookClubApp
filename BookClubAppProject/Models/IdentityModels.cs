@@ -21,7 +21,7 @@ namespace BookClubAppProject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("BookClubAppContext", throwIfV1Schema: false)
         {
         }
 

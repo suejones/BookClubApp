@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BookClubAppProject.Models.Review>
+@{
+    ViewBag.Title = ("Index");
+}
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-dismissible alert-danger">
+        <button class="close" type="button" data-dismiss="alert">&times;</button>
+        @TempData["message"]
+    </div>
+}
+
+<h2>Index</h2>
+
+@*<p>
+        @Html.ActionLink("Add Review", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.BookTitle)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.BookTitle)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+            </td>
+        </tr>
+    }
+</table>

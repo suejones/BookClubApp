@@ -1,0 +1,104 @@
+﻿@model BookClubAppProject.Models.BookClub
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BookClub</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Library.LibraryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Library.LibraryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookClubName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookClubName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.County)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.County)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextMeeting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextMeeting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentRead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentRead)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

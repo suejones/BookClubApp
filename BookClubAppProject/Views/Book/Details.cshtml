@@ -1,0 +1,67 @@
+﻿@model BookClubAppProject.Models.Book
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GenreType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GenreType)
+        </dd>
+    </dl>
+
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Reviews)*@
+                Rating
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.)*@
+                Comments
+            </th>
+        </tr>
+        @foreach (var item in Model.Reviews)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Rating)*@
+                    @for (int i = 0; i < item.Rating; i++)
+                    {<span class=" glyphicon glyphicon-star" />}
+                    (@item.Rating / 10)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookISBN }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

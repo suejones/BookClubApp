@@ -1,0 +1,39 @@
+﻿@model BookClubAppProject.Models.Review
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Review</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.BookISBN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.BookTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
