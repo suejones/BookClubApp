@@ -89,10 +89,26 @@
         <dd>
             @Html.DisplayFor(model => model.CurrentRead)
         </dd>
-
     </dl>
+    <h4>BookLists</h4>
+    <ul class=" = nav nav-pills">
+        @foreach (var item in Model.BookLists)
+        {
+            <li class="active">
+
+                @Html.ActionLink(item.BookListName, "Details", "BookList",
+                new { id = item.BookListID}, new { })
+            </li>
+        }
+
+
+
+    </ul>
+
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BookClubID }) |
     @Html.ActionLink("Back to List", "Index")
+
 </p>

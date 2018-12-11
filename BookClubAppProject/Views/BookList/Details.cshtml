@@ -1,0 +1,51 @@
+﻿@model BookClubAppProject.Models.BookList
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>BookList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookListName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookListName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookListType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookListType)
+        </dd>
+    </dl>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Book Title
+            </th>
+            <th>
+                Author
+            </th>
+        </tr>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorName)
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookListID }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Add Book", "Index", "Book", new { bookListid = Model.BookListID }, new { })
+</p>

@@ -1,0 +1,45 @@
+﻿@model BookClubAppProject.Models.Library
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Library</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LibraryName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LibraryName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LibraryEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LibraryEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.County)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.County)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LibraryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

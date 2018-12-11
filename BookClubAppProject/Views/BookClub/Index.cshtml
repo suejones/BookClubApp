@@ -9,26 +9,39 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<hr />
+<div class="container">
+    <div class="pull-left">
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="search-text">Book Club</label>
+                @Html.TextBox("bookClubNameSearch", "", new { @class = "form-control", @placeholder = "Search by Book Club Name" })
+                @Html.TextBox("bookClubAreaSearch", "", new { @class = "form-control", @placeholder = "Search by Area" })
+                @Html.TextBox("bookClubCountySearch", "", new { @class = "form-control", @placeholder = "Search by County" })
+            </div>
+            <button type="submit" class="btn btn-success" id="search-btn">Search</button>
+        </form>
+    </div>
+</div>
+<br />
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Library.LibraryName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.BookClubName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AdminEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Profile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Province)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.AdminEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Province)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.County)
         </th>
@@ -41,47 +54,52 @@
         <th>
             @Html.DisplayNameFor(model => model.CurrentRead)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Library.LibraryName)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Library.LibraryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookClubName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdminEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Profile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Province)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.County)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NextMeeting)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentRead)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookClubID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookClubID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookClubID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookClubName)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.AdminEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Province)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextMeeting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentRead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Library.LibraryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookClubID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookClubID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookClubID })|
+                @Html.ActionLink("Add BookList", "Create", "BookList", new { id = item.BookClubID }, new { })
+            </td>
+        </tr>
+    }
 
 </table>

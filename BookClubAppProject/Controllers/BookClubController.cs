@@ -33,8 +33,8 @@ namespace BookClubAppProject.Controllers
                 bcname = bcname.Where(c => c.BookClubName.Contains(bookClubNameSearch));
                 if (bcname.Count() == 0)
                 {
-                    TempData["message"] = string.Format("This Book Club does not exist in our DB - View Index");
-                    return RedirectToAction("Create");
+                    TempData["message"] = string.Format("This Book Club does not exist in our DB - View our full list of BookClubs");
+                    return RedirectToAction("Index");
 
                 }
             }
@@ -43,23 +43,23 @@ namespace BookClubAppProject.Controllers
                 bcname = bcname.Where(t => t.County.Contains(bookClubCountySearch));
                 if (bcname.Count() == 0)
                 {
-                    TempData["message"] = string.Format("This County does not have a BookClub on our DB - continue to search Database");
-                    return RedirectToAction("Create");
+                    TempData["message"] = string.Format("This County does not have a BookClub on our DB - View our full list of BookClubs");
+                    return RedirectToAction("Index");
 
                 }
             }
             if (!String.IsNullOrEmpty(bookClubAreaSearch))
             {
-                bcname = bcname.Where(t => t.County.Contains(bookClubAreaSearch));
+                bcname = bcname.Where(t => t.Area.Contains(bookClubAreaSearch));
                 if (bcname.Count() == 0)
                 {
-                    TempData["message"] = string.Format("This County does not have a BookClub on our DB - continue to search Database");
-                    return RedirectToAction("Create");
+                    TempData["message"] = string.Format("This Area does not have a BookClub on our DB - View our full list of BookClubs");
+                    return RedirectToAction("Index");
 
                 }
             }
-            return View(db.BookClubs.ToList());
-
+            //return View(db.BookClubs.ToList());
+            return View(bcname.ToList());
 
         }
 
@@ -181,3 +181,4 @@ namespace BookClubAppProject.Controllers
         }
     }
 }
+

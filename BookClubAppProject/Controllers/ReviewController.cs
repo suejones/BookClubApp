@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -34,8 +35,10 @@ namespace BookClubAppProject.Controllers
             }
             else
             {
-                reviewsToShow = db.Reviews.Include(r => r.Book).Where(r => r.UserID == User.Identity.GetUserId());
+                string loggedUser = User.Identity.GetUserId();
+                reviewsToShow = db.Reviews.Include(r => r.Book).Where(r => r.UserID == loggedUser);
             }
+
 
             return View(reviewsToShow.ToList());
         }

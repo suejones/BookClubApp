@@ -177,7 +177,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookClubController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BookListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="DAL\BookClubAppContext.cs" />
@@ -272,6 +274,16 @@
     <Content Include="Views\BookClub\Details.cshtml" />
     <Content Include="Views\BookClub\Edit.cshtml" />
     <Content Include="Views\BookClub\Index.cshtml" />
+    <Content Include="Views\BookList\Create.cshtml" />
+    <Content Include="Views\BookList\Delete.cshtml" />
+    <Content Include="Views\BookList\Details.cshtml" />
+    <Content Include="Views\BookList\Edit.cshtml" />
+    <Content Include="Views\BookList\Index.cshtml" />
+    <Content Include="Views\Library\Create.cshtml" />
+    <Content Include="Views\Library\Delete.cshtml" />
+    <Content Include="Views\Library\Details.cshtml" />
+    <Content Include="Views\Library\Edit.cshtml" />
+    <Content Include="Views\Library\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
